@@ -1,5 +1,9 @@
+
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include <opencv2/core.hpp>
+#include <opencv2/highgui.hpp>
+#include <opencv2/imgproc.hpp>
 
 using namespace cv;
 using namespace std;
@@ -18,6 +22,19 @@ int main()
 
     // Afficher l'image résultante
     imshow("Image avec cercle", image);
+    waitKey(0);
+
+    // Create a black image
+    Mat image(400, 400, CV_8UC3, cv::Scalar(0, 0, 0));
+
+    // Define the rectangle
+    Rect rect(100, 100, 200, 150);
+
+    // Draw the rectangle on the image
+    rectangle(image, rect, cv::Scalar(0, 255, 0), 2);
+
+    // Show the image
+    imshow("Rectangle", image);
     waitKey(0);
 
     return 0;
