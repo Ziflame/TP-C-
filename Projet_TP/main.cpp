@@ -9,32 +9,32 @@ using namespace std;
 
 int main()
 {
-    // Créer une image noire de 512x512 pixels
-    Mat image(512, 512, CV_8UC1, Scalar(0));
+    // Créer une image noire de 500x500 pixels
+    Mat image1(500, 500, CV_8UC3, Scalar(0));
 
     // Définir les coordonnées du centre du cercle et son rayon
-    Point center(256, 256);
-    int radius = 100;
+    Point centre(250, 250);
+    int rayon = 125;
 
     // Dessiner un cercle blanc sur l'image noire
-    circle(image, center, radius, Scalar(255), -1);
+    circle(image1, centre, rayon, Scalar(255, 0, 255), 3);
+   
+    // Afficher l'image 
+    imshow("cercle", image1);
 
-    // Afficher l'image résultante
-    imshow("Image avec cercle", image);
 
+    // Créer une image noire de 500x500 pixels
+    Mat image2(500, 500, CV_8UC3, cv::Scalar(0));
 
-    // Create a black image
-    Mat imag(400, 400, CV_8UC3, cv::Scalar(0, 0, 0));
+    // Définir le rectangle
+    Rect rect(125, 125, 250, 250);
 
-    // Define the rectangle
-    Rect rect(100, 100, 200, 150);
+    // Déssiner le rectangle sur l'image noire
+    rectangle(image2, rect, Scalar(0, 255, 255), 3);
 
-    // Draw the rectangle on the image
-    rectangle(imag, rect, cv::Scalar(0, 255, 0), 2);
-
-    // Show the image
-    imshow("Rectangle", imag);
+    // Afficher l'image
+    imshow("Rectangle", image2);
     waitKey(0);
 
-    return 0;
+    
 }
