@@ -3,26 +3,18 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
+#include "Cercle.h"
 
 using namespace cv;
 using namespace std;
 
 int main()
 {
-    // Créer une image noire de 500x500 pixels
-    Mat image1(500, 500, CV_8UC3, Scalar(0));
+    Cercle cercle(Scalar(0, 255, 0), Point(250,250), 100, 3);
+    cercle.dessiner();
 
-    // Définir les coordonnées du centre du cercle et son rayon
-    Point centre(250, 250);
-    int rayon = 125;
-
-    // Dessiner un cercle blanc sur l'image noire
-    circle(image1, centre, rayon, Scalar(255, 0, 255), 3);
+    
    
-    // Afficher l'image 
-    imshow("cercle", image1);
-
-
     // Créer une image noire de 500x500 pixels
     Mat image2(500, 500, CV_8UC3, cv::Scalar(0));
 
