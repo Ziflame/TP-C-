@@ -3,49 +3,32 @@
 #include <opencv2/core.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgproc.hpp>
-<<<<<<< HEAD
-#include "Rectangle.h"
-=======
 #include "Cercle.h"
->>>>>>> 35a6b467ee3a4f03bad788d3afaca8fbc1da3d87
 
 int main() {
-    // Crée une image vide avec une taille de 500x500 pixels et un espace de couleur RVB
+    // Crée une image blanche de taille 500x500 pixels
     cv::Mat image(500, 500, CV_8UC3, cv::Scalar(255, 255, 255));
 
-<<<<<<< HEAD
-    // Crée un rectangle avec les paramètres spécifiés
-    Rectangle rectangle(1, 100, 100, 200, 150, 2, cv::Scalar(0, 0, 255), cv::Scalar(0, 255, 0));
+    // Crée un objet cercle avec les paramètres spécifiés : couleur verte, centre (250, 250), rayon 100 et épaisseur du contour 3
+    Cercle cercle(cv::Scalar(0, 255, 0), cv::Point(250, 250), 100, 3);
 
-    // Dessine le rectangle sur l'image
-    rectangle.dessiner(image);
+    // Dessine le cercle sur l'image
+    cercle.dessiner();
 
-    // Affiche l'image dans une fenêtre avec le titre "Rectangle"
-    cv::imshow("Rectangle", image);
+    // Crée une autre image noire de taille 500x500 pixels
+    cv::Mat image2(500, 500, CV_8UC3, cv::Scalar(0));
+
+    // Définit un rectangle avec les coordonnées (125, 125), largeur 250 et hauteur 250
+    cv::Rect rect(125, 125, 250, 250);
+
+    // Dessine le rectangle sur l'image noire avec une couleur cyan et une épaisseur de contour de 3
+    cv::rectangle(image2, rect, cv::Scalar(0, 255, 255), 3);
+
+    // Affiche l'image avec le rectangle dans une fenêtre intitulée "Rectangle"
+    cv::imshow("Rectangle", image2);
+
+    // Attend une touche de clavier
     cv::waitKey(0);
 
     return 0;
-=======
-int main()
-{
-    Cercle cercle(Scalar(0, 255, 0), Point(250,250), 100, 3);
-    cercle.dessiner();
-
-    
-   
-    // Créer une image noire de 500x500 pixels
-    Mat image2(500, 500, CV_8UC3, cv::Scalar(0));
-
-    // Définir le rectangle
-    Rect rect(125, 125, 250, 250);
-
-    // Déssiner le rectangle sur l'image noire
-    rectangle(image2, rect, Scalar(0, 255, 255), 3);
-
-    // Afficher l'image
-    imshow("Rectangle", image2);
-    waitKey(0);
-
-    
->>>>>>> 35a6b467ee3a4f03bad788d3afaca8fbc1da3d87
 }
