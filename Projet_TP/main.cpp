@@ -15,6 +15,7 @@ int main() {
     std::string message;
     std::cout << "Que voulez-vous dessiner ?\n"; std::cin >> message;
 
+
     while (message != "Partir") {
 
         if (message == "Cercle") {
@@ -35,7 +36,8 @@ int main() {
             std::cin >> message;
         }
 
-        else if (message == "Triangle") {
+        else if (message == "Triangle"){
+
             //Définit un triangle avec les coordonnées des trois lignes qui forment les arrêtes du triangle
             Triangle triangle(cv::Scalar(255, 0, 0), cv::Point(250, 100), cv::Point(100, 450), cv::Point(400, 450), 3);
             //Desine le triangle
@@ -43,7 +45,9 @@ int main() {
             cv::waitKey(0);
             std::cin >> message;
         }
+
     }
+
     // Attend une touche de clavier
     cv::waitKey(0);
 

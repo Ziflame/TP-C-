@@ -3,9 +3,9 @@
 
 #include <opencv2/opencv.hpp>
 
-class Triangle
-{
+class Triangle{
 private:
+
 	cv::Mat image3;
 	cv::Scalar couleur;
 	cv::Point sommet1;
@@ -13,7 +13,9 @@ private:
 	cv::Point sommet3;
 	int epaisseur;
 
+
 public:
+
 	Triangle(cv::Scalar couleurTriangle, cv::Point sommet1Triangle, cv::Point sommet2Triangle, cv::Point sommet3Triangle, int epaisseurTriangle);
 	void dessiner();
 };
