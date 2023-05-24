@@ -1,12 +1,13 @@
-#include "rectangle.h"
+#include "Rectangle.h"
 
-Rectangle::Rectangle(int id, int x, int y, int l, int w, int epaisseurContour, cv::Scalar couleurContour, cv::Scalar couleurRemplissage)
-    : id(id), rect(x, y, l, w), epaisseurContour(epaisseurContour), couleurContour(couleurContour), couleurRemplissage(couleurRemplissage) {}
+Rectangle::Rectangle(cv::Scalar couleurRectangle, cv::Rect rectRectangle, int epaisseurRectangle) {
+    image2 = cv::Mat(500, 500, CV_8UC3, cv::Scalar(255, 255, 255));
+    couleur = couleurRectangle;
+    rect = rectRectangle;
+    epaisseur = epaisseurRectangle;
+}
 
-void Rectangle::dessiner(cv::Mat& image) {
-    // Dessine le rectangle avec la couleur de contour et l'épaisseur spécifiées
-    cv::rectangle(image, rect, couleurContour, epaisseurContour);
-
-    // Remplit le rectangle avec la couleur de remplissage spécifiée
-    cv::rectangle(image, rect, couleurRemplissage, cv::FILLED);
+void Rectangle::dessiner() {
+    cv::rectangle(image2, rect, couleur, epaisseur);
+    cv::imshow("Rectangle", image2);
 }

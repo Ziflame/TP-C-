@@ -1,19 +1,19 @@
-
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
 
 #include <opencv2/opencv.hpp>
 
 class Rectangle {
-public:
-    Rectangle(int id, int x, int y, int l, int w, int epaisseurContour, cv::Scalar couleurContour, cv::Scalar couleurRemplissage);
-
-    void dessiner(cv::Mat& image);
-
 private:
-    int id;
+    cv::Mat image2;
+    cv::Scalar couleur;
     cv::Rect rect;
-    int epaisseurContour;
-    cv::Scalar couleurContour;
-    cv::Scalar couleurRemplissage;
+    int epaisseur;
+
+public:
+    Rectangle(cv::Scalar couleurRectangle, cv::Rect rectRectangle, int epaisseurRectangle);
+    void dessiner();
 };
 
+#endif  // RECTANGLE_H
 

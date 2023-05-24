@@ -6,11 +6,11 @@ Cercle::Cercle(cv::Scalar couleurCercle, cv::Point centreCercle, int rayonCercle
     centre = centreCercle;
     rayon = rayonCercle;
     epaisseur = epaisseurCercle;
-    
+
 }
 
 void Cercle::dessiner() {
     cv::circle(image1, centre, rayon, couleur, epaisseur);
     cv::imshow("Cercle", image1);
-    
+
 }
