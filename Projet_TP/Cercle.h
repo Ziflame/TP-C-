@@ -3,7 +3,8 @@
 
 #include <opencv2/opencv.hpp>
 
-class Cercle {
+class Cercle 
+{
 private:
     cv::Mat image1;
     cv::Scalar couleur;

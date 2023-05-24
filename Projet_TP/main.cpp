@@ -6,14 +6,15 @@
 #include "Cercle.h"
 #include "Rectangle.h"
 #include "Triangle.h"
+#include "Rect_click.h"
+#include "RectAnim.h"
 #include <string>
 #include <stdio.h>
-
 
 int main() {
 
     std::string message;
-    std::cout << "Que voulez-vous dessiner ?\n"; std::cin >> message;
+    std::cout << "Que voulez-vous dessiner ? (Cercle, Rectangle, Triangle, Clic, Animation)\n(Tapez 'Partir' pour Quitter)\n\n"; std::cin >> message;
 
 
     while (message != "Partir") {
@@ -46,10 +47,47 @@ int main() {
             std::cin >> message;
         }
 
-    }
+        else if (message == "Clic") {
+            
+            // Définit la fenetre et le rectangle ainsi que le coordonnées de la souris
+            Rect_click fenetre;
+            // execute le programme pour faire apparaitre le rectangle à l'emplacement du curseur de la souris
+            fenetre.executer();
+            cv::waitKey(0);
+            std::cin >> message;
+        }
 
-    // Attend une touche de clavier
-    cv::waitKey(0);
+        else if (message == "Animation") {
+
+           RectAnim RectAnim;
+
+            // Crée un vecteur de coordonnées des rectangles
+            std::vector<std::vector<cv::Point>> coordonneesRectangles;
+            coordonneesRectangles.push_back({ cv::Point(125, 125), cv::Point(375, 125), cv::Point(375, 375), cv::Point(125, 375) });  // Rectangle 1
+            coordonneesRectangles.push_back({ cv::Point(150, 100), cv::Point(400, 150), cv::Point(350, 400), cv::Point(100, 350) });  // Rectangle 2
+            coordonneesRectangles.push_back({ cv::Point(175, 75), cv::Point(425, 175), cv::Point(325, 425), cv::Point(75, 325) });  // Rectangle 3
+            coordonneesRectangles.push_back({ cv::Point(200, 50), cv::Point(450, 200), cv::Point(300, 450), cv::Point(50, 300) });  // Rectangle 4
+            coordonneesRectangles.push_back({ cv::Point(225, 25), cv::Point(475, 225), cv::Point(275, 475), cv::Point(25, 275) });  // Rectangle 5
+            coordonneesRectangles.push_back({ cv::Point(250, 0), cv::Point(500, 250), cv::Point(250, 500), cv::Point(0, 250) });  // Rectangle 6
+            coordonneesRectangles.push_back({ cv::Point(275, 25), cv::Point(475, 275), cv::Point(225, 475), cv::Point(25, 225) });  // Rectangle 7
+            coordonneesRectangles.push_back({ cv::Point(300, 50), cv::Point(450, 300), cv::Point(200, 450), cv::Point(50, 200) });  // Rectangle 8
+            coordonneesRectangles.push_back({ cv::Point(325, 75), cv::Point(425, 325), cv::Point(175, 425), cv::Point(75, 175) });  // Rectangle 9
+            coordonneesRectangles.push_back({ cv::Point(350, 100), cv::Point(400, 350), cv::Point(150, 400), cv::Point(100, 150) });  // Rectangle 10
+
+            RectAnim.Rect(coordonneesRectangles, 800, 600);
+
+            cv::waitKey(0);
+            std::cin >> message;
+        }
+        
+        else {
+            std::cin >> message;
+        }
+    }
 
     return 0;
 }
+
+
+
+

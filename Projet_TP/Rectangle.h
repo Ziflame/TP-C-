@@ -3,7 +3,9 @@
 
 #include <opencv2/opencv.hpp>
 
-class Rectangle {
+
+class Rectangle 
+{
 private:
     cv::Mat image2;
     cv::Scalar couleur;

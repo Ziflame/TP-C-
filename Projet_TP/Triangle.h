@@ -3,7 +3,9 @@
 
 #include <opencv2/opencv.hpp>
 
-class Triangle{
+
+class Triangle 
+{
 private:
 
 	cv::Mat image3;
