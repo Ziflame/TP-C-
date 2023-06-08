@@ -15,6 +15,8 @@ private:
 	cv::Point sommet3;
 	int epaisseur;
 
+public :
+
 	Triangle(cv::Scalar couleurTriangle, cv::Point sommet1Triangle, cv::Point sommet2Triangle, cv::Point sommet3Triangle, int epaisseurTriangle);
 	void dessiner();
 };
