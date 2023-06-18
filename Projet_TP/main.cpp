@@ -15,35 +15,37 @@
 int main() {
 
     std::string message;
-    std::cout << "Que voulez-vous dessiner ? (Cercle, Rectangle, Triangle, Clic, Animation)\n(Tapez 'Partir' pour Quitter)\n\n"; std::cin >> message;
+    std::cout << "Que voulez-vous dessiner ? (Cercle, Rectangle, Triangle, Clic, Animation)\n(Tapez 'Partir' pour Quitter)\n(Appuyer sur 'q' pour changer de Forme)\n\n"; std::cin >> message;
 
 
     while (message != "Partir") {
 
         if (message == "Cercle") {
+            cv::Mat image = cv::Mat(500, 500, CV_8UC3, cv::Scalar(255, 255, 255));
             // Crée un objet cercle avec les paramètres spécifiés : couleur verte, centre (250, 250), rayon 100 et épaisseur du contour 3
             Cercle cercle(cv::Scalar(255, 255, 0), cv::Point(250, 250), 100, 3);
             // Dessine le cercle sur l'image
-            cercle.dessiner();
+            cercle.dessiner(image);
             cv::waitKey(0);
             std::cin >> message;
         }
 
         else if (message == "Rectangle") {
+            cv::Mat image = cv::Mat(500, 500, CV_8UC3, cv::Scalar(255, 255, 255));
             // Définit un rectangle avec les coordonnées (125, 125), largeur 250 et hauteur 250
             Rectangle rect(cv::Scalar(0, 255, 0), cv::Rect(125, 125, 250, 250), 3);
             //dessine le rectangle sur l'image
-            rect.dessiner();
+            rect.dessiner(image);
             cv::waitKey(0);
             std::cin >> message;
         }
 
         else if (message == "Triangle"){
-
+            cv::Mat image = cv::Mat(500, 500, CV_8UC3, cv::Scalar(255, 255, 255));
             //Définit un triangle avec les coordonnées des trois lignes qui forment les arrêtes du triangle
             Triangle triangle(cv::Scalar(255, 0, 0), cv::Point(250, 100), cv::Point(100, 450), cv::Point(400, 450), 3);
             //Desine le triangle
-            triangle.dessiner();
+            triangle.dessiner(image);
             cv::waitKey(0);
             std::cin >> message;
         }
@@ -88,6 +90,7 @@ int main() {
 
     return 0;
 }
+
 
 
 
