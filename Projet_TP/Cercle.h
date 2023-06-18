@@ -2,11 +2,12 @@
 #define CERCLE_H
 
 #include <opencv2/opencv.hpp>
+#include "Forme.h"
 
-class Cercle 
+class Cercle : public Forme
 {
 private:
-    cv::Mat image1;
+    
     cv::Scalar couleur;
     cv::Point centre;
     int rayon;
@@ -14,7 +15,7 @@ private:
 
 public:
     Cercle(cv::Scalar couleurCercle, cv::Point centreCercle, int rayonCercle, int epaisseurCercle);
-    void dessiner();
+    void dessiner(cv::Mat& image) override;;
 };
 
 #endif  // CERCLE_H

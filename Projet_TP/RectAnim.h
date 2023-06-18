@@ -4,11 +4,12 @@
 #include <opencv2/opencv.hpp>
 #include <vector>
 
-class RectAnim
+
+class RectAnim 
 {
 private:
 
-	cv::Mat image4;
+	cv::Mat image;
 	bool continuerAfficher;
 	
 

@@ -3,7 +3,7 @@
 
 #include <opencv2/opencv.hpp>
 
-class Rect_click
+class Rect_click 
 {
 public:
     Rect_click();

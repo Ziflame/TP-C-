@@ -2,22 +2,22 @@
 
 RectAnim::RectAnim() {
     // Crée une fenêtre pour afficher l'image
-    cv::namedWindow("Créateur de Rectangles");
+    cv::namedWindow("Rectangle Animation");
     continuerAfficher = true;
 }
 
 void RectAnim::Rect(const std::vector<std::vector<cv::Point>>& coordonnees, int largeur, int hauteur) {
     // Crée une image vide
-    image4 = cv::Mat(500, 500, CV_8UC3, cv::Scalar(255,255,255));
+    image = cv::Mat(500, 500, CV_8UC3, cv::Scalar(255,255,255));
     
     while (true) {
         // Dessine chaque rectangle sur l'image
         for (const auto& coords : coordonnees) {
 
-            cv::polylines(image4, coords, true, cv::Scalar(255, 255, 255), 3);
+            cv::polylines(image, coords, true, cv::Scalar(255, 255, 255), 3);
 
              // Affiche l'image dans la fenêtre
-            cv::imshow("Créateur de Rectangles", image4);
+            cv::imshow("Rectangle Animation", image);
 
             // Attend 50 milisecondes
             int key = cv::waitKey(50);
@@ -27,12 +27,14 @@ void RectAnim::Rect(const std::vector<std::vector<cv::Point>>& coordonnees, int 
                 continuerAfficher = false;
             }
             //affiche a nouveau un fond noir
-            image4.setTo(cv::Scalar(0, 0, 0));
+            image.setTo(cv::Scalar(0, 0, 0));
         }
 
         if (!continuerAfficher) {
             break;
+           
         }
     }
     
+    cv::destroyWindow("Rectangle Animation");
 }
