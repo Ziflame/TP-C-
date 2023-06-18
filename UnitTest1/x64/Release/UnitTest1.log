@@ -1,0 +1,2 @@
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppCommon.targets(1096,5): error MSB6006: Arrêt de "link.exe" avec le code 1181.
+LINK : fatal error LNK1181: impossible d'ouvrir le fichier en entrée 'opencv_world470.lib'
